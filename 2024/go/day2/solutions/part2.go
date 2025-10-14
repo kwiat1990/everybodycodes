@@ -21,12 +21,10 @@ func Part2(input string) int {
 
 	sum := 0
 	for _, sentence := range sentences {
-		mapper := map[int]int{}
-		for _, word := range words {
-			start := 0
-			end := start + len(word)
+		mapper := map[int]struct{}{}
 
-			for end <= len(sentence) {
+		for _, word := range words {
+			for start, end := 0, len(word); end <= len(sentence); start, end = start+1, end+1 {
 				chunk := sentence[start:end]
 				backwardChunk := make([]string, len(chunk))
 
@@ -35,15 +33,14 @@ func Part2(input string) int {
 
 				if word == strings.Join(chunk, "") || word == strings.Join(backwardChunk, "") {
 					for i := range len(word) {
-						mapper[start+i] += 1
+						mapper[start+i] = struct{}{}
 					}
 				}
-
-				start += 1
-				end = start + len(word)
 			}
 		}
+
 		sum += len(mapper)
 	}
+
 	return sum
 }
