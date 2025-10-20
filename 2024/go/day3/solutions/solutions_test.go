@@ -5,10 +5,14 @@ import (
 )
 
 func TestPart1(t *testing.T) {
-	input := `WORDS:THE,OWE,MES,ROD,HER
-
-AWAKEN THE POWER ADORNED WITH THE FLAMES BRIGHT IRE`
-	want := 4
+	input := `..........
+..###.##..
+...####...
+..######..
+..######..
+...####...
+..........`
+	want := 35
 
 	if got := Part1(input); got != want {
 		t.Fatalf("got = %d, want = %d", got, want)
@@ -16,14 +20,14 @@ AWAKEN THE POWER ADORNED WITH THE FLAMES BRIGHT IRE`
 }
 
 func TestPart2(t *testing.T) {
-	input := `WORDS:THE,OWE,MES,ROD,HER,QAQ
-
-AWAKEN THE POWE ADORNED WITH THE FLAMES BRIGHT IRE
-THE FLAME SHIELDED THE HEART OF THE KINGS
-POWE PO WER P OWE R
-THERE IS THE END
-QAQAQ`
-	want := 42
+	input := `..........
+..###.##..
+...####...
+..######..
+..######..
+...####...
+..........`
+	want := 35
 
 	if got := Part2(input); got != want {
 		t.Fatalf("got = %d, want = %d", got, want)
@@ -31,12 +35,14 @@ QAQAQ`
 }
 
 func TestPart3(t *testing.T) {
-	input := `WORDS:THE,OWE,MES,ROD,RODEO
-
-HELWORLT
-ENIGWDXL
-TRODEOAL`
-	want := 10
+	input := `..........
+..###.##..
+...####...
+..######..
+..######..
+...####...
+..........`
+	want := 29
 
 	if got := Part3(input); got != want {
 		t.Fatalf("got = %d, want = %d", got, want)
